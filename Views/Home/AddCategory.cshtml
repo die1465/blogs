@@ -1,0 +1,8 @@
+@model efcoreModels.categories
+<form asp-controller="Home" asp-action="addCategory" method="post">
+    <label for="title">new category:</label>
+    <input type="text" asp-for="category">
+    <br>
+    
+    <input type="submit" value="add category">
+</form>

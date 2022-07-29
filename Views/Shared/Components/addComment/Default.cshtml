@@ -1,0 +1,9 @@
+@model Int32
+
+<form asp-controller="Home" asp-action="addComment" method="post">
+    <input type="text" name="comment" required/>
+    <br>
+    <input type="hidden" name="id" value="@Model">
+    <br>
+    <input type="submit" value="add comment">
+</form>

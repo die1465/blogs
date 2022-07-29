@@ -1,0 +1,33 @@
+@model efcoreModels.viewBlogCategory
+<div style="width: 80%;">
+<h1>@Model.blogs.title</h1>
+<br>
+<h3>@Model.category.category</h3>
+<br>
+<h4>@Model.blogs.publishDate</h4>
+<hr>
+<h3>@Model.blogs.blog</h3>
+<br>
+<form asp-controller="Home" asp-action="gotoEditBlog" method="post">
+    <input type="hidden" name="id" value="@Model.blogs.blogId">
+    <button type="submit">edit blog</button>
+</form>
+<form asp-controller="Home" asp-action="deleteBlog" method="post">
+    <input type="hidden" name="id" value="@Model.blogs.blogId">
+    <button type="submit">delete blog</button>
+</form>
+<br>
+<hr>
+@await Component.InvokeAsync("addComment",Model.blogs.blogId)
+@foreach (var c in Model.comments)
+{
+    <div style="display: flex;">
+        <h4 style="padding: 0.5%;">@c.comment</h4>
+        <form asp-controller="Home" asp-action="deleteComment" method="post">
+        <input type="hidden" name="id" value="@c.commentId">
+        <button type="submit">delete comment</button>
+        </form>
+    </div>
+}
+
+</div>

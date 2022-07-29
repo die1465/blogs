@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<efcoreModels.blogs>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @await Component.InvokeAsync("blogByCategory")
+    @if(Model != null){
+        <div style="display: flex;">
+            @await Component.InvokeAsync("showBlogsInCategory", Model)
+        </div>
+    }
+    <br>
+    @await Component.InvokeAsync("blogByMostViewed")
+
+</div>

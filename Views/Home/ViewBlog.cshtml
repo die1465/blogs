@@ -1,0 +1,10 @@
+@model efcoreModels.viewBlog
+
+<div style="display: flex;">
+    <div style="width: 80%;">
+        @await Component.InvokeAsync("theBlog", Model.blogCategory)
+    </div>
+    <div style="width: 20%;">
+        @await Component.InvokeAsync("otherBlogsInSameCategory", Model)
+    </div>
+</div>

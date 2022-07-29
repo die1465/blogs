@@ -1,0 +1,19 @@
+@model efcoreModels.blogs
+@{
+    List<efcoreModels.categories> categories = ViewBag.categories;
+}
+<form asp-controller="Home" asp-action="addBlogToDB" method="post">
+    <label for="title">title:</label>
+    <input type="text" asp-for="title">
+    <br>
+    <textarea asp-for="blog" cols="30" rows="10"></textarea>
+    <br>
+    <label>select category</label>
+    <select asp-for="categoryId">
+        @foreach (var c in categories)
+        {
+        <option value="@c.categoryId">@c.category</option>  
+        }
+    </select>
+    <input type="submit" value="add blog">
+</form>

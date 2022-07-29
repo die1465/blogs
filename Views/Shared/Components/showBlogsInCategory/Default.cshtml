@@ -1,0 +1,15 @@
+@model List<efcoreModels.blogs>
+<div style="display: flex;">
+    @foreach (var blog in Model){
+        <div style="padding:0.5%;">
+            <form asp-controller="Home" asp-action="ViewBlog" 
+            asp-route-id="@blog.blogId">
+            <button type="submit">
+            <h1>@blog.title</h1>
+            <h2>views: @blog.visits</h2>
+            <h3>published on @blog.publishDate.ToString("dd/MM/yyyy")</h3>
+            </button>
+            </form>
+        </div>
+    }
+</div>

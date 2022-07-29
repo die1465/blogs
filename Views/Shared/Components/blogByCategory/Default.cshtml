@@ -1,0 +1,10 @@
+@model List<efcoreModels.categories>
+<div style="display: flex;">
+    @foreach (var c in Model)
+    {
+        <form asp-controller="Home"  asp-action="blogByCategory">
+            <input type="hidden" name="categoryID" value="@c.categoryId" required>
+            <input type="submit" value="@c.category" required>
+        </form>
+    }
+</div>

@@ -1,0 +1,17 @@
+@model efcoreModels.viewBlog
+<div style="width: 20%; height:auto; ">
+    @foreach (var blog in Model.otherBlogs)
+    {
+        <form asp-controller="Home" asp-action="ViewBlog" method="post">
+            <button type="submit">
+            <input type="hidden" name="id" value="@blog.blogId">
+            <input type="hidden" name="catID" value="@blog.categoryId">
+            <h1>@blog.title</h1>
+            <h2>views: @blog.visits</h2>
+            <h3>@Model.blogCategory.category.category</h3>
+            <h3>published at @blog.publishDate</h3>
+            </button>
+        </form>
+        
+    }    
+</div>
